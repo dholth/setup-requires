@@ -1,6 +1,7 @@
 #!/usr/bin/env python
-# Install setup-requires from a "[metadata] setup-requires = ..." section in
+# Install dependencies from a "[metadata] setup-requires = ..." section in
 # setup.cfg, then run real-setup.py.
+# From https://bitbucket.org/dholth/setup-requires
 
 import sys, os, subprocess, codecs, pkg_resources
 
