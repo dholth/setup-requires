@@ -1,30 +1,27 @@
 setup-requires
 ==============
 
-An example of a working setup_requires = [...] implementation. For those
+An example of a working build-system requires implementation. For those
 times when your setup.py needs to import a dependency.
 
 Use
 ===
 
-This package should not be installed! Instead, rename your project's
-setup.py to real-setup.py, copying setup-requires' setup.py in its
-place. List only the requirements setup.py itself needs to run in the
-`setup-requires =` key of the `[metadata]` section of setup.cfg,
-one per line::
+This package should not be installed! Instead, prepend setup-requires'
+setup.py to your own.  List only the requirements setup.py itself needs
+to run in pyproject.toml::
 
-    [metadata]
-    setup-requires = cffi
-        pip
-        pycparser >= 2.10
+    # Example build requirements folling build-deps-pep
+    [build-system]
+    requires = ["cffi", "pycparser >= 2.10"]
 
 (Only the name and required versions are allowed, not the full pip
-syntax of URLs to specific repositories. Instead, install internal
+syntax of URLs to specific repositories.  Instead, install internal
 setup-requires dependencies manually or set PIP_FIND_LINKS=... to point
 to the necessary repositories.)
 
-When run, setup-requires' setup.py checks that each distribution
-listed in setup-requires is installed; if not, it installs them into
-the ./setup-requires directory in a pip subprocess. Then real-setup.py
-continues to execute with the same arguments.
+When run, setup-requires' setup.py checks that each distribution listed is
+installed; if not, it installs them into the ./setup-requires directory
+in a pip subprocess. The normal setup.py contents can simply be pasted
+below the bootstrap code.
 

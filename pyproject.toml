@@ -1,0 +1,3 @@
+# Example build requirements folling build-deps-pep
+[build-system]
+requires = ["cffi", "pycparser >= 2.10"]

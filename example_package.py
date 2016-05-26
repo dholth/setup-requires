@@ -1,0 +1,5 @@
+"""
+Example package.
+
+Does nothing!
+"""
