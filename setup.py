@@ -21,12 +21,13 @@ def install_requirements(specifiers):
         subprocess.call([sys.executable, "-m", "pip", "install", 
             "-t", "setup-requires"] + to_install)
         
-install_requirements(missing_requirements(['toml']))
+install_requirements(missing_requirements(['pytoml']))
 
-import toml
+import pytoml
 
 try:
-    pyproject = toml.load('pyproject.toml')
+    with open('pyproject.toml') as f:
+        pyproject = pytoml.load(f)
 except IOError:
     pass
 else:
